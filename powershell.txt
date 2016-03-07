@@ -1,0 +1,14 @@
+Convert AD user information to JSON with powershell..
+
+Must have Powershell AD module installed.
+
+Copy Below Change company to your Company attribute that is populated on user objects Organization Tab that you want to grab:
+
+$Employees = Get-ADUser -Filter {Company -eq "Company"} -Properties Displayname, title, department, mail, telephoneNumber | 
+select  @{Name="name";Expression={$_.displayName}},
+        @{Name="title";Expression={$_.title}},
+        @{Name="department";Expression={$_.department}},
+        @{Name="email";Expression={$_.mail}},
+        @{Name="phone";Expression={$_.telephoneNumber}}
+$Employees | ConvertTo-Json >> c:\emp.json
+

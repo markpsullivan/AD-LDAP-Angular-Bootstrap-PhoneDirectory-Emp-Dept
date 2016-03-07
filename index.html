@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Company Directory</title>
+</head>
+
+<body>
+    <div class="container-fluid" ng-controller="ctrl">
+
+
+        <div class="table-responsive shadow">
+            <img class="img-responsive img-center" src="logo.jpg" />
+            <h2 class="text-center">Company Directory</h2>
+            <form role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control search-bar" placeholder="Search" ng-model="search.name">
+                </div>
+            </form>
+            <h3>Employee Directory</h3>
+            <table class="table table-striped table-hover table-condensed">
+                <thead>
+                    <tr>
+                        <th>
+	                        <a href="#" ng-click="orderByField='name'; reverseSort = !reverseSort">Name
+		                        <span ng-show="orderByField == 'name'">
+		                        <span ng-show="!reverseSort"><span class="caret"></span></span>
+		                        <span class="dropup" ng-show="reverseSort"><span class="caret"></span></span>
+		                        </span>
+	                        </a>
+                        </th>
+                        <th class="dhide">
+                        	<a href="#" ng-click="orderByField='title'; reverseSort = !reverseSort">Title
+		                        <span ng-show="orderByField == 'title'">
+		                        <span ng-show="!reverseSort"><span class="caret"></span></span>
+		                        <span class="dropup" ng-show="reverseSort"><span class="caret"></span></span>
+		                        </span>
+	                        </a>
+                        </th>
+                        <th class="dhide">
+                        	<a href="#" ng-click="orderByField='department'; reverseSort = !reverseSort">Department
+		                        <span ng-show="orderByField == 'department'">
+		                        <span ng-show="!reverseSort"><span class="caret"></span></span>
+		                        <span class="dropup" ng-show="reverseSort"><span class="caret"></span></span>
+		                        </span>
+	                        </a>
+                        </th>
+                        <th>
+                        	<a href="#" ng-click="orderByField='email'; reverseSort = !reverseSort">Email
+		                        <span ng-show="orderByField == 'email'">
+		                        <span ng-show="!reverseSort"><span class="caret"></span></span>
+		                        <span class="dropup" ng-show="reverseSort"><span class="caret"></span></span>
+		                        </span>
+	                        </a>
+                        </th>
+                        <th><a href="#" ng-click="orderByField='phone'; reverseSort = !reverseSort">Phone
+		                        <span ng-show="orderByField == 'phone'">
+		                        <span ng-show="!reverseSort"><span class="caret"></span></span>
+		                        <span class="dropup" ng-show="reverseSort"><span class="caret"></span></span>
+		                        </span>
+	                        </a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="resource in emp | filter:search | orderBy:orderByField:reverseSort">
+                        <td class="tblName trunc">{{resource.name}}</td>
+                        <td class="trunc dhide">{{resource.title}}</td>
+                        <td class="trunc dhide">{{resource.department}}</td>
+                        <td class="trunc"><a class="empEmail" href="mailto:{{resource.email}}" data-toggle="tooltip" title="{{resource.email}}">{{resource.email}}</a></td>
+                        <td>{{resource.phone}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Departments</h3>
+            <table class="table table-striped table-hover table-condensed">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+
+                        <th class="dhide">Department</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="resource in extra | filter:search">
+                        <td class="tblName trunc">{{resource.name}}</td>
+                        <td class="trunc dhide">{{resource.department}}</td>
+                        <td>{{resource.phone}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+
+</html>

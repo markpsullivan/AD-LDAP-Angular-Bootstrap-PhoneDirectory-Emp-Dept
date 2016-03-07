@@ -1,0 +1,90 @@
+body {
+    font-family: 'Raleway', Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+    text-rendering: optimizelegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Raleway', Helvetica, sans-serif;
+    color: #45619D;
+}
+
+.search-bar {
+	max-width:450px;
+	margin: 0 auto;
+}
+
+.img-center {
+    margin: 0 auto;
+}
+
+.tblName {
+    font-weight: bold;
+    font-size: 1em;
+    color: #45619D;
+}
+
+.shadow {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    box-shadow: 0 0 30px #9896ba;
+    padding: 0 15px 0 15px;
+}
+
+table {
+    font-size: 1em;
+    table-layout: fixed;
+}
+
+td {
+    white-space: nowrap;
+}
+
+td.trunc {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.empName {
+    font-weight: bold;
+    font-size: 1em;
+    color: #45619D;
+}
+
+.empTitle {
+    font-weight: bold;
+}
+
+.empDept {
+    font-size: 1.3em;
+}
+
+.empPhone {
+    font-size: 1.5em;
+}
+
+@media only screen and (max-width: 1279px) {
+    table {
+        font-size: .8em;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    table {
+        table-layout: fixed;
+        font-size: .7em;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .dhide {
+        display: none;
+    }
+}
